@@ -13,6 +13,7 @@ builder.Services.AddSingleton<IInventoryRepository, InventoryRepository>();//单
 
 builder.Services.AddTransient<IViewInventoriesByNameUseCase, ViewInventoriesByNameUseCase>();//瞬时服务每次请求时都会创建一个新的实例。这种生命周期适用于轻量级无状态服务
 builder.Services.AddTransient<IAddInventoryUseCase, AddInventoryUseCase>();
+builder.Services.AddTransient<IEditInventoryUseCase, EditInventoryUseCase>();
 
 //builder.Services.AddScoped<IViewInventoriesByNameUseCase, ViewInventoriesByNameUseCase>(); //作用域服务的实例在每个请求中创建一次，并在每个请求之间共享,生命周期与请求/信道的生命周期相同
 
