@@ -43,7 +43,17 @@ namespace IMS.Plugins.InMemory
         {
             return await Task.FromResult(_inventories.First(x => x.InventoryId == inventoryId));
         }
-        
+
+        public Task DeleteInventoryByIdAsync(int inventoryId)
+        {
+            var inventory = _inventories.FirstOrDefault(x => x.InventoryId == inventoryId);
+            if (inventory  != null)
+            {
+                _inventories.Remove(inventory);
+            }
+            return Task.CompletedTask;
+        }
+
         public Task UpdateInventoryAsync(Inventory inventory)
         {
             if (_inventories.Any(x => x.InventoryId != inventory.InventoryId &&
